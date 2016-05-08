@@ -7,7 +7,7 @@ This file creates your application.
 """
 
 import os
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, json, response
 
 app = Flask(__name__)
 
@@ -57,6 +57,21 @@ def add_header(response):
 def page_not_found(error):
     """Custom 404 page."""
     return render_template('404.html'), 404
+
+
+@app.route('/hello', methods = ['GET'])
+def api_hello():
+    data = {
+        'hello'  : 'world',
+        'number' : 3
+    }
+    js = json.dumps(data)
+
+    resp = jsonify(data)
+    resp.status_code = 200
+    resp.headers['Link'] = 'https://ipicarapp.herokuapp.com/'
+
+    return resp
 
 
 if __name__ == '__main__':
