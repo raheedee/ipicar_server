@@ -62,10 +62,8 @@ def page_not_found(error):
 @app.route('/hello', methods = ['GET'])
 def api_hello():
     list = [
-        {'param': 'foo', 'val': 2},
-        {'param': 'bar', 'val': 10},
-        {'param': 'asd', 'val': 66},
-        {'param': 'asdvv', 'val': 33}
+        {'car': 'S7', 'make':'Audi', 'year' : '2013', 'val': 2, 'picture' : 'http://media.ed.edmunds-media.com/audi/s7/2013/oem/2013_audi_s7_sedan_prestige_fq_oem_6_98.jpg'},
+        {'car': '428i', 'make' : 'BMW', 'year' : '2014', 'val': 2, 'picture' : 'https://media.ed.edmunds-media.com/bmw/4-series/2014/oem/2014_bmw_4-series_convertible_428i_fq_oem_2_98.jpg'}
     ]
     
     resp = jsonify(result=list)
