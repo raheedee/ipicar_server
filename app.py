@@ -61,8 +61,12 @@ def page_not_found(error):
     return render_template('404.html'), 404
 
 
+<<<<<<< HEAD
 @app.route('/GetCars', methods = ['GET'])
 @cross_origin(origins='*')
+=======
+@app.route('/hello', methods = ['GET'])
+>>>>>>> parent of e2c6ea0... updated json
 def api_hello():
     list = [
         {'car': 'S7', 'make':'Audi', 'year' : '2013', 'val': 2, 'picture' : 'http://media.ed.edmunds-media.com/audi/s7/2013/oem/2013_audi_s7_sedan_prestige_fq_oem_6_98.jpg'},
