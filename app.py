@@ -7,7 +7,7 @@ This file creates your application.
 """
 
 import os
-from flask import Flask, render_template, request, redirect, url_for, json, response
+from flask import Flask, render_template, request, redirect, url_for, json, Response, jsonify
 
 app = Flask(__name__)
 
@@ -61,10 +61,7 @@ def page_not_found(error):
 
 @app.route('/hello', methods = ['GET'])
 def api_hello():
-    data = {
-        'hello'  : 'world',
-        'number' : 3
-    }
+    data = {"gender":"male","name":{"title":"mr","first":"joseph","last":"richardson"},"location":{"street":"7571 edwards rd","city":"hervey bay","state":"new south wales","postcode":1866},"email":"joseph.richardson@example.com","login":{"username":"whitemouse984","password":"damien","salt":"OAZh0lg5","md5":"9cf72bc757e2f2cdc1aa1a8cbb94c5ef","sha1":"80f0e65c4a85ed6116800ded9efed720915e8448","sha256":"0054243b023c077470e1c9925363d49b2992eb02cefaf37ab23d57a525bc50a6"},"registered":1240101185,"dob":1142157398,"phone":"03-7795-7788","cell":"0408-984-842","id":{"name":"TFN","value":"128066967"},"picture":{"large":"https://randomuser.me/api/portraits/men/94.jpg","medium":"https://randomuser.me/api/portraits/med/men/94.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/men/94.jpg"},"nat":"AU"}
     js = json.dumps(data)
 
     resp = jsonify(data)
